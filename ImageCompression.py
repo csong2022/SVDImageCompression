@@ -4,14 +4,14 @@ import time
 
 from PIL import Image
 
-img = Image.open('wp1892090.png')
-# imggray = img.convert('LA')
-plt.figure(figsize=(9, 6))
+img = Image.open('tiger.jpg')
+imggray = img.convert('LA')
+plt.figure(figsize=(16, 9))
 plt.imshow(imggray)
 imgmat = np.array(list(imggray.getdata(band=0)), float)
 imgmat.shape = (imggray.size[1], imggray.size[0])
 imgmat = np.asmatrix(imgmat)
-plt.figure(figsize=(9,6))
+plt.figure(figsize=(16, 9))
 plt.imshow(imgmat, cmap='gray')
 
 U, sigma, V = np.linalg.svd(imgmat)
